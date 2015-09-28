@@ -1,0 +1,59 @@
+(1) instrum_function.m
+calculate statistics of CNR for each PPI, each scanning distance
+skewness, kurtosis, average, inter-quartile range, maximum likly-hood estimator (peak of PDF), std, 3 normal distribution tests
+
+(2) result.m
+
+check all PPI files to detect those that correspond the criteria of homogeneity
+impose filtering conditions (using statistics for all PPI)
+determine (automatically or visually) the distances where exp(delta CNR) is const
+calculate alpha within these distances
+(eigther with the multi-angle, eigther with the slope method)
+
+as a result we get the list of PPI files (ij, L), written in listing_2lnR.m
+impose the reference PPI
+evaluate beta ratio
+plot the ratios : alpha(n)/alpha(ref) and beta(n)/beta(ref) for the best PPI selection
+
+instrum_function_result.m is used   ;   
+
+(3) result_instr_func.m
+result_instr_func_allbestPPI.m
+
+evaluate beta ratio (again)
+use the beta ratio to calculate F(Ri)*K*Beta(ref)
+extract F(R) using beta ratio and F(Ri)*K*Beta(ref)
+
+as a result we get the offset K*beta(ref) and the value of Instr Func (within 0 - 1), written in instrumental_correction.m
+
+(4) lidar_correction.m
+remove F(R) and  the offset K*beta(ref) from all PPI
+
+multi-angle_method_Pabs_vs_CosTeta.m
+
+%%%%%%%%%%%%%%%%%%%%
+"retrieve_K.m"  
+within a group of potentially homogeneous PPI files (during 10 days) previously chosen using RHI structure, vertical symmetry and various statistics at distance R
+chose several best PPI using their statistics (25-75% range and skew at each R)
+analyse CNR values at those distances R where statistics are bad 
+remove those profiles where peaks in CNR(R) exist before 1500m (aerosols/obstacles) 
+recalculate PDF(CNR)) at each R : did it become better after removing these profiles? 
+whether 1 and 5% tails should be removed as well ?
+calculate alpha for two or three presumingly homogeneous PPI 
+evaluate beta ratio between chosen PPI
+calculate F(R) for each of these two/three PPI
+remove F(R) and alpha(n) from the corresponding PPI, so that the residual = ln(K) + ln(beta)
+using the beta_ratio evaluate K (supposing that it is common for these two PPI)
+deduce K from given PPI(n) to obtain beta(n)
+calculate corresponding lidar ratio LR(n)
+
+
+
+ 
+
+
+
+
+
+
+
