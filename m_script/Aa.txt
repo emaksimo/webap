@@ -1,9 +1,0 @@
-"retrieve_K.m"  
-within a group of potentially homogeneous PPI files (during 10 days) previously chosen using RHI structure, vertical symmetry and various statistics at distance R
-chose several best PPI using their statistics (25-75% range and skew at each R)
-analyse CNR values at those distances R where statistics are bad 
-remove those profiles where peaks in CNR(R) exist before 1500m (aerosols/obstacles) 
-recalculate PDF(CNR)) at each R : did it become better after removing these profiles? 
-whether 1 and 5% tails should be removed as well ?
-
-
