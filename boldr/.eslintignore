@@ -1,0 +1,9 @@
+coverage/**
+node_modules/**
+dist/**
+*-test.js
+static/**
+docs/**
+backup/**
+src/server/__tests__/**/*.js
+tools/gulp/**
